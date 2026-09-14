@@ -1,1 +1,0 @@
-# SIH_Srijan_sociosolve
