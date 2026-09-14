@@ -1,0 +1,6 @@
+backend/venv/
+backend/.env
+backend/sociosolve.db
+**/__pycache__/
+*.pyc
+.DS_Store

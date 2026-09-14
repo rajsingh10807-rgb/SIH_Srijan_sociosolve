@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>SocioSolve — Console</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<div id="login-screen" class="screen">
+  <form id="admin-login-form" class="login-card">
+    <p class="console-tag">SOCIOSOLVE / CONSOLE</p>
+    <h1>Admin sign-in</h1>
+    <p class="sub">This dashboard isn't linked from the public site. If you're here, you already
+      know the address — sign in with an admin account.</p>
+    <label>Username
+      <input type="text" name="username" required autocomplete="username" />
+    </label>
+    <label>Password
+      <input type="password" name="password" required autocomplete="current-password" />
+    </label>
+    <p class="error-line" data-error></p>
+    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+  </form>
+</div>
+
+<div id="dashboard-screen" class="screen hidden">
+  <header class="console-header">
+    <p class="console-tag">SOCIOSOLVE / CONSOLE</p>
+    <button id="logout-btn" class="btn btn-ghost">Sign out</button>
+  </header>
+
+  <main class="console-main">
+    <section class="stats-grid" id="stats-grid"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Groq API keys</h2>
+        <p class="panel-sub">The active key is used for every AI Insight request. If it expires
+          or gets rate-limited, the backend automatically tries the others on file — but you
+          should still add a fresh one here when that happens.</p>
+      </div>
+
+      <div id="keys-table"></div>
+
+      <form id="add-key-form" class="inline-form">
+        <label class="grow">New key
+          <input type="text" name="key_value" placeholder="gsk_..." required minlength="10" />
+        </label>
+        <label>Label
+          <input type="text" name="label" placeholder="e.g. backup #2" />
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="make_active" checked />
+          Make active
+        </label>
+        <button type="submit" class="btn btn-primary">Add key</button>
+      </form>
+      <p class="error-line" data-error="add-key"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Model</h2>
+        <p class="panel-sub">The Groq model used for every AI Insight. Change this if a model
+          gets deprecated or you want a faster/cheaper one.</p>
+      </div>
+      <form id="model-form" class="inline-form">
+        <label class="grow">Active model
+          <input type="text" name="active_model" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+      <p class="error-line" data-error="model"></p>
+    </section>
+  </main>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
