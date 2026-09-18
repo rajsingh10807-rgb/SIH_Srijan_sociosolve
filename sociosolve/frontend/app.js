@@ -1,6 +1,6 @@
 "use strict";
 
-const API_BASE = "/api";
+const API_BASE = "https://sih-srijan-sociosolve.onrender.com/api";
 const TOKEN_KEY = "sociosolve_token";
 const CATEGORIES = [
   "Water", "Health", "Agriculture", "Energy",
